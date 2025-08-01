@@ -1,0 +1,356 @@
+/**
+ * Global Loading Component Styles
+ * 
+ * Styles for the loading component that appears during page transitions.
+ * Provides smooth animations and accessible loading indicators.
+ */
+
+/* Main container */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Spinner container */
+.spinnerContainer {
+  position: relative;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Main spinner */
+.spinner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Spinner rings */
+.spinnerRing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.spinnerRing:nth-child(1) {
+  border-top-color: var(--primary);
+  animation-duration: 2s;
+}
+
+.spinnerRing:nth-child(2) {
+  border-right-color: var(--secondary);
+  animation-duration: 1.5s;
+  animation-direction: reverse;
+  width: 70%;
+  height: 70%;
+}
+
+.spinnerRing:nth-child(3) {
+  border-bottom-color: var(--success);
+  animation-duration: 1s;
+  width: 40%;
+  height: 40%;
+}
+
+/* Brand icon in center */
+.brandIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Loading text */
+.loadingText {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+/* Progress indicator */
+.progressContainer {
+  width: 200px;
+  margin-bottom: var(--spacing-lg);
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.progressBar {
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary),
+    var(--success)
+  );
+  background-size: 200% 100%;
+  border-radius: 2px;
+  animation: progressMove 2s ease-in-out infinite;
+}
+
+/* Background animation */
+.backgroundAnimation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.animationElement {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    var(--primary-light),
+    var(--secondary-light)
+  );
+  opacity: 0.05;
+  animation: float 8s ease-in-out infinite;
+}
+
+.animationElement:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 8s;
+}
+
+.animationElement:nth-child(2) {
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+  animation-duration: 6s;
+}
+
+.animationElement:nth-child(3) {
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 4s;
+  animation-duration: 10s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes progressMove {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.05;
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+    opacity: 0.05;
+  }
+  75% {
+    transform: translateY(-30px) rotate(270deg);
+    opacity: 0.08;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .spinner {
+    width: 60px;
+    height: 60px;
+  }
+
+  .brandIcon {
+    font-size: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .progressContainer {
+    width: 150px;
+  }
+
+  .animationElement {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .spinner {
+    width: 50px;
+    height: 50px;
+  }
+
+  .brandIcon {
+    font-size: 1.2rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+    padding: 0 var(--spacing-md);
+  }
+
+  .progressContainer {
+    width: 120px;
+  }
+
+  .animationElement {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .spinner,
+  .spinnerRing,
+  .brandIcon,
+  .progressFill,
+  .animationElement {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .container {
+    animation: none;
+  }
+
+  .title,
+  .subtitle,
+  .progressContainer {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .spinnerRing:nth-child(1) {
+    border-top-color: var(--text-primary);
+  }
+
+  .spinnerRing:nth-child(2) {
+    border-right-color: var(--text-primary);
+  }
+
+  .spinnerRing:nth-child(3) {
+    border-bottom-color: var(--text-primary);
+  }
+
+  .progressFill {
+    background: var(--text-primary);
+  }
+}
+
+/* Print styles */
+@media print {
+  .container {
+    display: none;
+  }
+}

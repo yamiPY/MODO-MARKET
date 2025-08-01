@@ -1,0 +1,321 @@
+/**
+ * Individual Product Page Styles
+ * 
+ * This CSS module contains styles for the individual product detail page.
+ * It includes responsive layouts, product information display, and interactive elements.
+ * 
+ * Features:
+ * - Responsive product detail layout
+ * - Image and content positioning
+ * - Price and rating displays
+ * - Interactive buttons and hover effects
+ * - Mobile-first responsive design
+ */
+
+/* Main container for the product detail page */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  min-height: 100vh;
+}
+
+/* Product detail article wrapper */
+.productDetail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+}
+
+/* Image container with fixed aspect ratio */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5/6;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--background-secondary);
+}
+
+/* Product image styling */
+.image {
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.image:hover {
+  transform: scale(1.02);
+}
+
+/* Product details section */
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  height: 100%;
+}
+
+/* Product header section */
+.productHeader {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--spacing-lg);
+}
+
+/* Product title */
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+/* Product category badge */
+.category {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--primary);
+  color: var(--text-inverse);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Rating section */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.stars {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+.ratingValue {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Description section */
+.descriptionSection {
+  margin-bottom: var(--spacing-lg);
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Product specifications */
+.specifications {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--background-secondary);
+  border-radius: var(--radius-md);
+}
+
+.spec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.spec:last-child {
+  border-bottom: none;
+}
+
+.specLabel {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.specValue {
+  color: var(--text-secondary);
+}
+
+/* Purchase section */
+.purchaseSection {
+  margin-top: auto;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border);
+}
+
+/* Price container */
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Current price */
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+/* Original price (crossed out) */
+.originalPrice {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* Add to cart button */
+.addToCartBtn {
+  width: 100%;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  background: linear-gradient(45deg, var(--success), var(--primary));
+  border: none;
+  color: var(--text-inverse);
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.addToCartBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, var(--success-dark), var(--primary-dark));
+}
+
+.addToCartBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.addToCartBtn:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-md);
+  }
+
+  .productDetail {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+  }
+
+  .imageContainer {
+    aspect-ratio: 4/3;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+
+  .specifications {
+    padding: var(--spacing-md);
+  }
+
+  .spec {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: var(--spacing-sm);
+  }
+
+  .productDetail {
+    padding: var(--spacing-md);
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .addToCartBtn {
+    padding: var(--spacing-md);
+    font-size: 1rem;
+  }
+}
+
+/* Loading and error states */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.error h2 {
+  color: var(--danger);
+  margin-bottom: var(--spacing-md);
+}
+
+.error p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Accessibility improvements */
+.addToCartBtn:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .addToCartBtn {
+    display: none;
+  }
+
+  .productDetail {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}

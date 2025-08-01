@@ -1,0 +1,43 @@
+.container {
+  width: 70px;
+  height: 40px;
+  padding: 4px;
+  border: 2px solid var(--navbar-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--radius-xl);
+  position: relative;
+  cursor: pointer;
+  background: var(--navbar-border);
+  backdrop-filter: blur(10px);
+  transition: border-color var(--transition-normal),
+    background var(--transition-normal);
+}
+
+.container:hover {
+  border-color: var(--navbar-border-hover);
+  background: var(--navbar-border-hover);
+}
+
+.icon {
+  font-size: 18px;
+  z-index: 2;
+  transition: color var(--transition-normal);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navbar-text);
+}
+
+.switcher {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(45deg, var(--secondary), var(--secondary-dark));
+  border-radius: var(--radius-full);
+  position: absolute;
+  transition: left var(--transition-bounce), background var(--transition-bounce);
+  z-index: 2;
+}

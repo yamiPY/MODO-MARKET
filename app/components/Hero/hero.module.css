@@ -1,0 +1,120 @@
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.textContainer {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.textContainer h1 {
+  font-weight: bold;
+  font-size: 5rem;
+  background-image: linear-gradient(to right, #ff8c37, #30b58d);
+  background-clip: text;
+  color: transparent;
+}
+
+.textContainer p {
+  background-image: linear-gradient(to right, #8f5e3c, #25745c);
+  background-clip: text;
+  font-size: 1.3rem;
+  font-weight: 450;
+  color: transparent;
+}
+
+.textContainer button {
+  background-image: linear-gradient(to right, #30b58d);
+  color: white;
+  font-size: 1.3rem;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+.container {
+  animation: slideDown 0.7s ease-out;
+}
+
+@media screen and (max-width: 1320px) {
+  .textContainer h1 {
+    font-weight: bold;
+    font-size: 4rem;
+    background-image: linear-gradient(to right, #ff8c37, #30b58d);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .textContainer button {
+    max-width: 20rem;
+  }
+
+  .heroImage {
+    width: 500px;
+    height: 450px;
+  }
+
+  .container {
+    animation: slideDown 0.7s ease-out;
+  }
+}
+
+@media screen and (max-width: 975px) {
+  .container {
+  }
+  .textContainer h1 {
+    font-weight: bold;
+    font-size: 4rem;
+    background-image: linear-gradient(to right, #ff8c37, #30b58d);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .textContainer button {
+    max-width: 20rem;
+  }
+
+  .heroImage {
+    width: 300px;
+    height: 350px;
+  }
+
+  .container {
+    animation: slideDown 0.7s ease-out;
+  }
+}
+@media screen and (max-width: 806px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .textContainer h1 {
+    font-weight: bold;
+    font-size: 3rem;
+    background-image: linear-gradient(to right, #ff8c37, #30b58d);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .textContainer button {
+    max-width: 20rem;
+  }
+  .container {
+    animation: slideDown 0.7s ease-out;
+  }
+}

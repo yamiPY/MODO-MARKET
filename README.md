@@ -310,4 +310,5 @@ For support, email support@modo-mart.com or join our Slack channel.
 
 **Made with ❤️ by the Modo Mart Team**
 #   M O D O - M A R K E T  
+ #   M O D O - M A R K E T  
  
